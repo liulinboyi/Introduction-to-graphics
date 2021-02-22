@@ -23,13 +23,14 @@ import { ToyVue } from './toyVue'
 void function () {
     const gl = RenderContext.getGL()
 
-    gl.enable(gl.DEPTH_TEST)
-    gl.depthFunc(gl.LEQUAL)
-    gl.clearDepth(1.0)
-    gl.viewport(0.0, 0.0, canvas.width, canvas.height)
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
+    // gl.enable(gl.DEPTH_TEST)
+    // gl.depthFunc(gl.LEQUAL)
+    // gl.clearDepth(1.0)
+    // gl.viewport(0.0, 0.0, canvas.width, canvas.height)
+    // gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
 
     const mesh = shape.d2_f(100, 100, 100, 150, 30)
+    console.log(mesh, 'Mesh 网格')
     const model = new Model(mesh)
     // model.setVectorUniform('u_color', [0, 0, 0, 1.0])
     // let color = [...transformColor(0, 255, 255), 1.0]
@@ -47,12 +48,12 @@ void function () {
         g: 191,
         b: 255
     };
-    let test = {
-        a: { b: { c: 1 } }
-    }
-    let proxy_test = reactive(test);
-    console.log(proxy_test);
-    proxy_test.a.b.c = 4;
+    // let test = {
+    //     a: { b: { c: 1 } }
+    // }
+    // let proxy_test = reactive(test);
+    // console.log(proxy_test);
+    // proxy_test.a.b.c = 4;
     let proxy_rgb = reactive(rgb);
     r.value = proxy_rgb.r;
     g.value = proxy_rgb.g;

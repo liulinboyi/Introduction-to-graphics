@@ -27,6 +27,7 @@
 
     <canvas id=canvas></canvas>
     <script type="notjs" id="vertex-shader">
+        // GLSL OpenGL着色器语言
         // 顶点着色器
         // attribute 对应流、缓冲区
         attribute vec2 a_positoon; // 二维向量
@@ -35,6 +36,7 @@
         uniform vec2 u_resolution; // 分辨率
 
         void main() {
+            // normalize
             // 规约化，横纵坐标都规约成[0,1]之间的点,在屏幕内
             vec2 zeroToOne = a_positoon / u_resolution;
 
@@ -47,6 +49,20 @@
 
             // clipSpace中也是一个二维向量 clipSpace * vec2(1, -1) 相当于clipSpace中的x与1相乘成为新的x,clipSpace中的y与-1相乘成为新的y
             // 此时y轴会反过来，拟合（符合）视口坐标系
+            // 屏幕的坐标系y轴和我们理解的y轴方向是相反的
+            // 正常坐标系y轴是：
+            // y
+            // |
+            // |
+            // |
+            // --------------- x
+
+            // 实际屏幕坐标系是：
+            // --------------- x
+            // |
+            // |
+            // |
+            // y
             // x轴 y轴 clipSpace * vec2(1, -1)；z轴： 0；第四维：1；
             gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
 
@@ -55,6 +71,7 @@
 
     </script>
     <script type="notjs" id="fragment-shader">
+        // GLSL OpenGL着色器语言
         // 片段着色器
         // 声明精度 mediump 16位
         precision mediump float;

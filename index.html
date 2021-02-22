@@ -68,12 +68,12 @@
             const link = item.attributes['data-link'].value
             if (`#${link}` === hash) {
                 window.history.pushState('', link, `#${link}`)
-                iframe.src = `${link}.html`;
+                iframe.src = `${link}`;
             }
             item.addEventListener('click', (e) => {
                 const link = e.target.attributes['data-link'].value
                 window.history.pushState('', link, `#${link}`)
-                iframe.src = `${link}.html`;
+                iframe.src = `${link}`;
             });
         }
     </script>
