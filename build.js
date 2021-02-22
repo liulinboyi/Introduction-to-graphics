@@ -19,16 +19,16 @@ void async function () {
         encoding: 'utf-8'
     })
 
-    fs.readdir(dirpath, function (err, files) {
-        console.log(files, 'files')
-        const htmlFiles = files.filter(el => /\.html$/.test(el))
-        htmlFiles.forEach(item => {
-            let content = fs.readFileSync(path.join(dirpath, item), { encoding: 'utf-8' })
-            content = content.replace(/__APP__\.js/g, "#")
-            // console.log(content, 'content')
-            fs.writeFileSync(`${path.join(__dirname, `/dist/${item}`)}`, content, {
-                encoding: 'utf-8'
-            })
-        })
-    })
+    // fs.readdir(dirpath, function (err, files) {
+    //     console.log(files, 'files')
+    //     const htmlFiles = files.filter(el => /\.html$/.test(el))
+    //     htmlFiles.forEach(item => {
+    //         let content = fs.readFileSync(path.join(dirpath, item), { encoding: 'utf-8' })
+    //         content = content.replace(/__APP__\.js/g, "#")
+    //         // console.log(content, 'content')
+    //         fs.writeFileSync(`${path.join(__dirname, `/dist/${item}`)}`, content, {
+    //             encoding: 'utf-8'
+    //         })
+    //     })
+    // })
 }()

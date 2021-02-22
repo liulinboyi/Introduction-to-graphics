@@ -38,11 +38,13 @@ const options = {
       title: '01-2d',
       filename: '01-2d.html',
       template: path.resolve(__dirname, "apps", '01-2d', 'index.html'),
+      chunks: ['01-2d']
     }),
     new HtmlWebpackPlugin({
       title: '02-3d-cube',
       filename: '02-3d-cube.html',
       template: path.resolve(__dirname, "apps", '02-3d-cube', 'index.html'),
+      chunks: ['02-3d-cube']
     }),
     new HtmlWebpackPlugin({
       title: 'index',
